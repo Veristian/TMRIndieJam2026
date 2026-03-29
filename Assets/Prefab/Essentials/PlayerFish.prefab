@@ -153,4 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95fa9eba403da249b8ac2b838db571c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
+  maxMoveSpeed: 7
+  moveForce: 4
+  waterFriction: 3
