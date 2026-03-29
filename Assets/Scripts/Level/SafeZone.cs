@@ -9,7 +9,7 @@ public class SafeZone : MonoBehaviour
     public float healRate = 5f; // Amount of health restored per second
 
     private bool isActive = false;
-    private SphereCollider safeZoneCollider;
+    protected SphereCollider safeZoneCollider;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && isActive)
@@ -64,5 +64,9 @@ public class SafeZone : MonoBehaviour
         safeZoneCollider = GetComponent<SphereCollider>();
         safeZoneCollider.isTrigger = true;
     }
-
+    private void Reset()
+    {
+        safeZoneCollider = GetComponent<SphereCollider>();
+        safeZoneCollider.isTrigger = true;
+    }
 }
