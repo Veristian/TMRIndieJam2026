@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 802423790}
   - component: {fileID: 802423789}
   - component: {fileID: 802423788}
+  - component: {fileID: 802423792}
   m_Layer: 0
   m_Name: r
   m_TagString: Untagged
@@ -358,6 +359,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &802423792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802423787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e605eb819da6c44b9104b0794c5718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SavePointManager
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,12 +434,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2908153282279089697, guid: ae3efb2f3c931a54a8387f8fae235ad6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.7668266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908153282279089697, guid: ae3efb2f3c931a54a8387f8fae235ad6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.7668266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908153282279089697, guid: ae3efb2f3c931a54a8387f8fae235ad6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.7668266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908153282279089697, guid: ae3efb2f3c931a54a8387f8fae235ad6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2908153282279089697, guid: ae3efb2f3c931a54a8387f8fae235ad6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -22.58
       objectReference: {fileID: 0}
     - target: {fileID: 2908153282279089697, guid: ae3efb2f3c931a54a8387f8fae235ad6, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,0 +1,74 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+public class SavePointManager : Singleton<SavePointManager>
+{
+    private List<Transform> savePoints;
+
+    private void Start()
+    {
+        if (savePoints == null)
+            savePoints = new List<Transform>();
+    }
+
+    public void AddSavePoint(Transform savePoint)
+    {
+        RemoveEmptySavePoints();
+        if (!savePoints.Contains(savePoint))
+        {
+            savePoints.Add(savePoint);
+        }
+    }
+
+    public Vector3 GetLastSavePoint()
+    {
+        RemoveEmptySavePoints();
+        if (savePoints.Count > 0)
+        {
+            return savePoints[savePoints.Count - 1].position;
+        }
+        else
+        {
+            Debug.LogWarning("No save points available. Returning default position.");
+            return Vector3.zero; // Return a default value if no save points are available
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (savePoints != null)
+        {
+            Gizmos.color = Color.green;
+            foreach (var point in savePoints)
+            {
+                Gizmos.DrawSphere(point.position, 0.5f);
+            }
+        }
+    }
+
+    private void RemoveEmptySavePoints()
+    {
+        if (savePoints != null)
+        {
+            savePoints.RemoveAll(point => point == null);
+        }
+    }
+
+    [Button("Debug Save Points")]
+    public void DebugSavePoints()
+    {
+        if (savePoints == null || savePoints.Count == 0)
+        {
+            Debug.Log("No save points available.");
+            return;
+        }
+        foreach (var point in savePoints)
+        {
+            Debug.Log("Save Point: " + point);
+        }
+    }
+
+
+
+
+}
