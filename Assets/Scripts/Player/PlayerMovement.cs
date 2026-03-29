@@ -1,8 +1,10 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float maxMoveSpeed = 5f;
+    [SerializeField] private float maxSprintSpeed = 10f;
     [SerializeField] private float moveForce = 5f;
     [SerializeField] private float waterFriction = 5f;
 
@@ -29,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         
-        Vector3 desiredVelocity = new Vector3(movementInput.x, 0, movementInput.y) * maxMoveSpeed;
+        float currentMaxSpeed = InputManager.sprintIsHeld ? maxSprintSpeed : maxMoveSpeed;
+        Vector3 desiredVelocity = new Vector3(movementInput.x, 0, movementInput.y) * currentMaxSpeed;
         Vector3 velocityChange = desiredVelocity - rb.linearVelocity;
         velocityChange.y = 0; // Don't change vertical velocity
         rb.AddForce(velocityChange * moveForce, ForceMode.Acceleration);

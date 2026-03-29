@@ -11,12 +11,15 @@ public class InputManager : Singleton<InputManager>
     //System Callbacks
     public static event System.Action<Vector2> PlayerMovement;
     public static event System.Action OnInteract;
+    public static event System.Action OnSprint;
 
     //Public Value
     public static Vector2 movementInput;
     public static bool interactWasPressedThisFrame;
     public static bool interactWasReleasedThisFrame;
     public static bool interactIsHeld;
+
+    public static bool sprintIsHeld;
 
 
     protected override void Awake()
@@ -34,6 +37,10 @@ public class InputManager : Singleton<InputManager>
         {
             OnInteract?.Invoke();
         };
+        playerInput.actions["Sprint"].performed += ctx =>
+        {
+            OnSprint?.Invoke();
+        };
 
     }
 
@@ -43,6 +50,8 @@ public class InputManager : Singleton<InputManager>
         interactWasPressedThisFrame = playerInput.actions["Interact"].WasPressedThisFrame();
         interactWasReleasedThisFrame = playerInput.actions["Interact"].WasReleasedThisFrame();
         interactIsHeld = playerInput.actions["Interact"].IsPressed();
+        sprintIsHeld = playerInput.actions["Sprint"].IsPressed();
+
     }
 
 
