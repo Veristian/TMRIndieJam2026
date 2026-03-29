@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 6647814723285645174}
   - component: {fileID: 1131982956259615490}
   - component: {fileID: 2159266403780146005}
+  - component: {fileID: 4361276166164225010}
   - component: {fileID: 5715816208355199748}
   m_Layer: 0
   m_Name: CinemachineCamera
@@ -221,6 +222,23 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!114 &4361276166164225010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694039890153153817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineVolumeSettings
+  Weight: 1
+  FocusTracking: 0
+  FocusTarget: {fileID: 0}
+  FocusOffset: 0
+  Profile: {fileID: 11400000, guid: f783b7166a6004043a64337d69dafb9f, type: 2}
 --- !u!114 &5715816208355199748
 MonoBehaviour:
   m_ObjectHideFlags: 0

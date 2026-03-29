@@ -591,6 +591,10 @@ PrefabInstance:
       propertyPath: CameraDistance
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4361276166164225010, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5344381050366665341, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02514
