@@ -1,16 +1,49 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+
+[RequireComponent(typeof(PlayerInput))]
+public class InputManager : Singleton<InputManager>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static PlayerInput playerInput;
+    public static Vector2 touchPosition;
+
+    //System Callbacks
+    public static event System.Action<Vector2> PlayerMovement;
+    public static event System.Action OnInteract;
+
+    //Public Value
+    public static Vector2 movementInput;
+    public static bool interactWasPressedThisFrame;
+    public static bool interactWasReleasedThisFrame;
+    public static bool interactIsHeld;
+
+
+    protected override void Awake()
     {
+
+        base.Awake();
+        playerInput = GetComponent<PlayerInput>();
         
+        playerInput.actions["Move"].performed += ctx =>
+        {
+            touchPosition = ctx.ReadValue<Vector2>();
+            PlayerMovement?.Invoke(touchPosition);
+        };
+        playerInput.actions["Interact"].performed += ctx =>
+        {
+            OnInteract?.Invoke();
+        };
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        movementInput = playerInput.actions["Move"].ReadValue<Vector2>();
+        interactWasPressedThisFrame = playerInput.actions["Interact"].WasPressedThisFrame();
+        interactWasReleasedThisFrame = playerInput.actions["Interact"].WasReleasedThisFrame();
+        interactIsHeld = playerInput.actions["Interact"].IsPressed();
     }
+
+
 }

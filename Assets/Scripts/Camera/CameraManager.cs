@@ -1,12 +1,13 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : Singleton<CameraManager>
 {
     private CinemachineCamera cinemachineCamera;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         cinemachineCamera = GetComponent<CinemachineCamera>();
     }
 
