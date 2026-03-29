@@ -15,4 +15,20 @@ public class PlayerAttribute : MonoBehaviour
         get { return playerHealth; }
         set { playerHealth = Mathf.Clamp(value, 0, 100); }
     }
+
+    private static Transform playerTransform;
+    public static Transform PlayerTransform
+    {
+        get { return playerTransform; }
+        set { playerTransform = value; }
+    }
+
+    private void Awake()
+    {
+        playerTransform = transform;
+    }
+    private void Reset()
+    {
+        playerTransform = transform;
+    }
 }
