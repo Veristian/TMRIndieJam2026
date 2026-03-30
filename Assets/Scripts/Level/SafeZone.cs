@@ -8,9 +8,9 @@ public class SafeZone : MonoBehaviour
     [Tooltip("Amount of health restored per second")]
     public float healRate = 5f; // Amount of health restored per second
 
-    private bool isActive = false;
+    protected bool isActive = false;
     protected SphereCollider safeZoneCollider;
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && isActive)
         {
@@ -20,7 +20,7 @@ public class SafeZone : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") && isActive)
         {
@@ -30,7 +30,7 @@ public class SafeZone : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    protected virtual void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && isActive)
         {

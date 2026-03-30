@@ -286,6 +286,9 @@ MonoBehaviour:
   maxSprintSpeed: 10
   moveForce: 4
   waterFriction: 3
+  sprintResource: 3
+  sprintDepletionRate: 1
+  sprintRecoveryRate: 1.5
 --- !u!114 &6789056318066283073
 MonoBehaviour:
   m_ObjectHideFlags: 0

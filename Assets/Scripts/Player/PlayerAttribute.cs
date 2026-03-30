@@ -31,4 +31,53 @@ public class PlayerAttribute : MonoBehaviour
     {
         playerTransform = transform;
     }
+
+    public void TakeDamage(float damageAmount)
+    {
+        PlayerHealth -= damageAmount;
+        if (PlayerHealth <= 0)
+        {
+            playerHealth = 0;
+            SavePointManager.Instance.ReturnToLastSavePoint();
+            Debug.Log("Player has died!");
+        }
+    }
+
+    public void Heal(float healAmount)
+    {
+        PlayerHealth += healAmount;
+        if (PlayerHealth > 100)
+        {
+            playerHealth = 100;
+        }
+    }
+
+    [Button("Toggle Hide From Predators")]
+    public void ToggleHideFromPredators()
+    {
+        IsHiddenFromPredators = !IsHiddenFromPredators;
+        Debug.Log("Player is now " + (IsHiddenFromPredators ? "hidden from predators." : "visible to predators."));
+    }
+
+    [Button("Reset Player Health")]
+    public void ResetPlayerHealth()
+    {
+        PlayerHealth = 100;
+    }
+    
+    [Button("Kill Player")]
+    public void KillPlayer()
+    {
+        PlayerHealth = 0;
+        SavePointManager.Instance.ReturnToLastSavePoint();
+        Debug.Log("Player has been killed!");
+    }
+
+    [Button("Debug Player Attributes")]
+    public void DebugPlayerAttributes()
+    {
+        Debug.Log("Player Health: " + PlayerHealth);
+        Debug.Log("Is Hidden From Predators: " + IsHiddenFromPredators);
+    }
+
 }

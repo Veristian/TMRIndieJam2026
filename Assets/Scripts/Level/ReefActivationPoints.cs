@@ -4,15 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class ReefActivationPoints : MonoBehaviour
 {
-    private MajorReef parentReef;
+    [SerializeField] private MajorReef parentReef;
     public MajorReef ParentReef
     {
         set { parentReef = value; }
     }
-    private SphereCollider activationCollider;
+    [SerializeField] private SphereCollider activationCollider;
     private float cleanedProgress = 0f;
     private float cleanedThreshold = 1f;
     private float cleaningRate = 0.1f; // Progress per click
+
+    private bool playerInRange = false;
 
     private void Awake()
     {
@@ -20,27 +22,39 @@ public class ReefActivationPoints : MonoBehaviour
         activationCollider.isTrigger = true;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (InputManager.interactWasPressedThisFrame)
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (playerInRange && InputManager.interactWasPressedThisFrame) // Left click to clean
+        {
+            cleanedProgress += cleaningRate;
+            if (cleanedProgress >= cleanedThreshold)
             {
-                cleanedProgress += cleaningRate;
-                if (cleanedProgress >= cleanedThreshold)
-                {
-                    Debug.Log("Activation point cleaned!");
-                    gameObject.SetActive(false);
-                    parentReef?.DetectActivationProgress();
-                }
+                gameObject.SetActive(false); // Deactivate point when cleaned
             }
         }
     }
-    private void OnDrawGizmos()
+
+    private void OnDisable()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position, activationCollider.radius);
+        parentReef.DetectActivationProgress(); // Notify parent reef to check progress
     }
 
-    
+
+
 }

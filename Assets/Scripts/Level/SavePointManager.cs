@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 public class SavePointManager : Singleton<SavePointManager>
 {
-    private List<Transform> savePoints;
+    [SerializeField] private List<Transform> savePoints;
 
     private void Start()
     {
-        if (savePoints == null)
-            savePoints = new List<Transform>();
+        if (savePoints == null) savePoints = new List<Transform>();
     }
 
     public void AddSavePoint(Transform savePoint)
     {
+        Debug.Log("Adding save point: " + savePoint);
         RemoveEmptySavePoints();
         if (!savePoints.Contains(savePoint))
         {
@@ -42,17 +42,17 @@ public class SavePointManager : Singleton<SavePointManager>
         PlayerAttribute.PlayerHealth = 100; // Restore health on respawn
     }
 
-    private void OnDrawGizmos()
-    {
-        if (savePoints != null)
-        {
-            Gizmos.color = Color.green;
-            foreach (var point in savePoints)
-            {
-                Gizmos.DrawSphere(point.position, 0.5f);
-            }
-        }
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     if (savePoints != null)
+    //     {
+    //         Gizmos.color = Color.green;
+    //         foreach (var point in savePoints)
+    //         {
+    //             Gizmos.DrawSphere(point.position, 0.5f);
+    //         }
+    //     }
+    // }
 
     private void RemoveEmptySavePoints()
     {

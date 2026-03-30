@@ -5,22 +5,19 @@ public class MajorReef : SafeZone
 {
     private Transform savePoint;
     
-    private List<ReefActivationPoints> activationPoints = new List<ReefActivationPoints>();
+    [SerializeField] private List<ReefActivationPoints> activationPoints = new List<ReefActivationPoints>();
     [SerializeField] private float activationThreshold = 3f;
     private float activationProgress = 0f;
 
-    private void OnValidate()
-    {
-        CreateActivationPoints();
-    }
+
     private void Start()
     {
         SetSafeZoneActive(false);
         if (savePoint == null) savePoint = transform;
-        CreateActivationPoints();
     }
 
-    private void CreateActivationPoints()
+    [Button("Create Activation Points")]
+    public void CreateActivationPoints()
     {
         if (activationPoints.Count > 0) return; // Avoid creating points multiple times
         if (activationThreshold <= 0) return; 
@@ -41,6 +38,7 @@ public class MajorReef : SafeZone
     {
         SetSafeZoneActive(true);
         SavePointManager.Instance.AddSavePoint(savePoint);
+        Debug.Log("Major Reef Activated! Safe zone is now active and save point added.");
     }
 
     [Button("Detect Activation Progress")]
@@ -57,6 +55,7 @@ public class MajorReef : SafeZone
             ActivateMajorReef();
         }
     }
+
 
 
 }
