@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class PlayerAttribute : MonoBehaviour
 {
     private static bool isHiddenFromPredators = false;
@@ -32,7 +32,25 @@ public class PlayerAttribute : MonoBehaviour
         playerTransform = transform;
     }
 
-    public void TakeDamage(float damageAmount)
+
+    private static bool insideToxicArea = false;
+
+    private static float toxicDamageRate = 5f; // Damage per second when inside toxic area
+    public static void SetInsideToxicArea(bool inside, float damageRate = 5f)
+    {
+        insideToxicArea = inside;
+        toxicDamageRate = damageRate;
+
+    }
+    private void Update()
+    {
+        if (insideToxicArea)
+        {
+            TakeDamage(toxicDamageRate * Time.deltaTime); // Example damage over time in toxic area
+        }
+    }
+
+    public static void TakeDamage(float damageAmount)
     {
         PlayerHealth -= damageAmount;
         if (PlayerHealth <= 0)
@@ -43,7 +61,7 @@ public class PlayerAttribute : MonoBehaviour
         }
     }
 
-    public void Heal(float healAmount)
+    public static void RestoreHealth(float healAmount)
     {
         PlayerHealth += healAmount;
         if (PlayerHealth > 100)
@@ -51,6 +69,7 @@ public class PlayerAttribute : MonoBehaviour
             playerHealth = 100;
         }
     }
+
 
     [Button("Toggle Hide From Predators")]
     public void ToggleHideFromPredators()

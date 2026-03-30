@@ -41,7 +41,7 @@ public class SafeZone : MonoBehaviour
 
     private void HealPlayer()
     {
-        PlayerAttribute.PlayerHealth += healRate * Time.deltaTime;
+        PlayerAttribute.RestoreHealth(healRate * Time.deltaTime);
     }
 
     protected void SetSafeZoneActive(bool active)
