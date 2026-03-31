@@ -56,7 +56,8 @@ public class SafeZone : MonoBehaviour
             Gizmos.color = Color.blue;
         else
             Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, transform.localScale.x);
+        if (safeZoneCollider != null)
+            Gizmos.DrawWireSphere(transform.position, safeZoneCollider.radius * transform.localScale.x);
     }
     
     protected virtual void Awake()

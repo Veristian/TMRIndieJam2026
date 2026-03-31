@@ -15,6 +15,20 @@ public class Trash : MonoBehaviour
         {
             PlayerAttribute.TakeDamage(damageAmount);
             Debug.Log("Player hit trash! Health: " + PlayerAttribute.PlayerHealth);
+            DestroyTrash();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.gray;
+        SphereCollider collider = GetComponent<SphereCollider>();
+        if (collider != null)
+            Gizmos.DrawWireSphere(transform.position, collider.radius * transform.localScale.x);
+    }
+
+    private void DestroyTrash()
+    {
+        Destroy(gameObject);
     }
 }

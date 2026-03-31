@@ -55,6 +55,13 @@ public class ReefActivationPoints : MonoBehaviour
         parentReef.DetectActivationProgress(); // Notify parent reef to check progress
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        if (activationCollider != null)
+            Gizmos.DrawWireSphere(transform.position, activationCollider.radius * transform.localScale.x * transform.parent.localScale.x);
+    }
+
 
 
 }

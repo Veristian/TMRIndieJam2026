@@ -18,4 +18,20 @@ public class ToxicWater : MonoBehaviour
             Debug.Log("Player entered toxic water!");
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerAttribute.SetInsideToxicArea(true, damageRate);
+            Debug.Log("Player is in toxic water!");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerAttribute.SetInsideToxicArea(false, damageRate);
+            Debug.Log("Player left toxic water!");
+        }
+    }
 }
