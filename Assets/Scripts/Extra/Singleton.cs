@@ -13,9 +13,18 @@ public class Singleton<T> : MonoBehaviour where T : Component
             if (instance == null)
             {
                 instance = FindAnyObjectByType<T>();
+                if (instance == null)
+                {
+                    Debug.Log($"No instances of {typeof(T)} found.");
+                    return null;
+                }
+                return instance;
+            }
+            else
+            {
+                return instance;
             }
 
-            return instance;
         }
     }
 

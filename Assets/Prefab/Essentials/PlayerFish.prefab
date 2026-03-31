@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2382961629057108102}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.029, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0.029, y: 0, z: 0}
   m_LocalScale: {x: 0.141775, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 5744475217235863945}
   - component: {fileID: 8254586162623336351}
   - component: {fileID: 6789056318066283073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerFish
   m_TagString: Player
   m_Icon: {fileID: 0}
