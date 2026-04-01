@@ -36,6 +36,7 @@ public class MajorReef : SafeZone
     [Button("Activate Major Reef")]
     public void ActivateMajorReef()
     {
+        if (SavePointManager.Instance == null) return;
         SetSafeZoneActive(true);
         SavePointManager.Instance.AddSavePoint(savePoint);
         Debug.Log("Major Reef Activated! Safe zone is now active and save point added.");

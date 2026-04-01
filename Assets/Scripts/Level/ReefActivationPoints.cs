@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -52,7 +51,8 @@ public class ReefActivationPoints : MonoBehaviour
 
     private void OnDisable()
     {
-        parentReef.DetectActivationProgress(); // Notify parent reef to check progress
+        if (parentReef != null)
+            parentReef.DetectActivationProgress(); // Notify parent reef to check progress
     }
 
     private void OnDrawGizmos()
