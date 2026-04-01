@@ -69,6 +69,7 @@ public class PlayerAttribute : MonoBehaviour
             playerHealth = 100;
         }
     }
+    
 
 
     [Button("Toggle Hide From Predators")]

@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 2159266403780146005}
   - component: {fileID: 4361276166164225010}
   - component: {fileID: 5715816208355199748}
+  - component: {fileID: 6154757674156211070}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -188,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 5694039890153153817}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.0000000336838, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.025137857, y: 49.999992, z: 1.346356}
+  m_LocalPosition: {x: 2.204862, y: 49.999992, z: 1.346356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -297,6 +298,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff45d8e481766445a5d4ad1e6886684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
+--- !u!114 &6154757674156211070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694039890153153817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &9090576512856437205
 GameObject:
   m_ObjectHideFlags: 0

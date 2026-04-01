@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -41,11 +42,12 @@ public class Predator : Agent
 
     private Vector3 startPosition;
     private bool attacking = false;
-
-    
+    private CinemachineImpulseSource cinemachineCollisionImpulseSource;
+    private bool hasDamagedPlayer = false;
 
     private void Start()
     {
+        cinemachineCollisionImpulseSource = GetComponent<CinemachineImpulseSource>();
         startPosition = transform.position;
         currentState = State.Patrol;
         if (patrolPoints.Count == 0)
@@ -181,16 +183,20 @@ public class Predator : Agent
     {
         attacking = false;
         rb.isKinematic = true;
+        hasDamagedPlayer = false;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (attacking)
+        if (attacking && !hasDamagedPlayer)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
                 Debug.Log("Collided with Player during attack!");
                 PlayerAttribute.TakeDamage(damageAmount); // Example damage value
+                cinemachineCollisionImpulseSource.GenerateImpulseWithVelocity((PlayerAttribute.PlayerTransform.position - transform.position).normalized * 5f);
+                hasDamagedPlayer = true;
+            
             }
         }
     }
