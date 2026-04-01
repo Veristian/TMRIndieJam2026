@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,12 +95,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96591d2cc9c2f984fbb200475e540628
+      internalID: -1882719001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_1
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78cff6d97a0cbb46b3b21e6e0b070f6
+      internalID: 651821654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_2
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94995700194455c4a8932534921aacda
+      internalID: 197866607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_3
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86285a36b49b7fb4bb650d0bc11de82b
+      internalID: -1835433360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_4
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439c99d03be28ba468012aaf5b77d16f
+      internalID: 294086780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_5
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7007d294b390a2458eab59baf1cbe9a
+      internalID: 778027701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_6
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1380a1bc71537344c9b9d7d1f5643c1d
+      internalID: 509594681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_7
+      rect:
+        serializedVersion: 2
+        x: 2002
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c336d27dab17fea418a8905f628f8d95
+      internalID: -697684715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_8
+      rect:
+        serializedVersion: 2
+        x: 2288
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378f4539b71726644b8a105b52f3424d
+      internalID: 766901965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_9
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db4d7888408e1144bb0b2cc2c8540c0
+      internalID: -1477075126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_10
+      rect:
+        serializedVersion: 2
+        x: 2860
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63463599f298b0b408845182996f0452
+      internalID: 602849440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_11
+      rect:
+        serializedVersion: 2
+        x: 3146
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327461310c67fd249ae6fe1662d5c8f5
+      internalID: -812028820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_12
+      rect:
+        serializedVersion: 2
+        x: 3432
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83084eccfea935d48a9b8e6082c03d23
+      internalID: -534232017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_13
+      rect:
+        serializedVersion: 2
+        x: 3718
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c86f076095bd9a4e95e43c8642111e0
+      internalID: 975372144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_14
+      rect:
+        serializedVersion: 2
+        x: 4004
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a00a49f1a85a094d97150da8d39894d
+      internalID: 1947929243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Jam 2026 G4C Player Fish Test_15
+      rect:
+        serializedVersion: 2
+        x: 4290
+        y: 0
+        width: 286
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c110bcc2b37f705469cf77ff9a23ae66
+      internalID: 666075248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4a67987cc045c244587f8857b4525289
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +460,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":286.0,"y":214.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Game Jam 2026 G4C Player Fish Test_0: -1882719001
+      Game Jam 2026 G4C Player Fish Test_1: 651821654
+      Game Jam 2026 G4C Player Fish Test_10: 602849440
+      Game Jam 2026 G4C Player Fish Test_11: -812028820
+      Game Jam 2026 G4C Player Fish Test_12: -534232017
+      Game Jam 2026 G4C Player Fish Test_13: 975372144
+      Game Jam 2026 G4C Player Fish Test_14: 1947929243
+      Game Jam 2026 G4C Player Fish Test_15: 666075248
+      Game Jam 2026 G4C Player Fish Test_2: 197866607
+      Game Jam 2026 G4C Player Fish Test_3: -1835433360
+      Game Jam 2026 G4C Player Fish Test_4: 294086780
+      Game Jam 2026 G4C Player Fish Test_5: 778027701
+      Game Jam 2026 G4C Player Fish Test_6: 509594681
+      Game Jam 2026 G4C Player Fish Test_7: -697684715
+      Game Jam 2026 G4C Player Fish Test_8: 766901965
+      Game Jam 2026 G4C Player Fish Test_9: -1477075126
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
