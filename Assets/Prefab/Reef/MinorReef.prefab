@@ -217,4 +217,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036efebe3abdbec4db3c4d5d41875d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinorReef
-  healRate: 5
+  healRate: 20

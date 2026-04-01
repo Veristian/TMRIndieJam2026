@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 public class PlayerAttribute : MonoBehaviour
 {
+    public static event System.Action OnPlayerDamageTaken;
+    public static event System.Action OnPlayerHealed;
     private static bool isHiddenFromPredators = false;
     public static bool IsHiddenFromPredators
     {
@@ -27,10 +29,12 @@ public class PlayerAttribute : MonoBehaviour
         set { playerTransform = value; }
     }
     private SpriteRenderer playerSpriteRenderer;
+    private PlayerEffects playerEffects;
     private void Awake()
     {
         playerTransform = transform;
         playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        playerEffects = GetComponent<PlayerEffects>();
     }
     private void Reset()
     {
@@ -52,10 +56,15 @@ public class PlayerAttribute : MonoBehaviour
         if (insideToxicArea)
         {
             TakeDamageBypass(toxicDamageRate * Time.deltaTime); // Example damage over time in toxic area
+            playerSpriteRenderer.color = Color.Lerp(playerSpriteRenderer.color, Color.darkGreen, 0.1f); // Change color to indicate toxic damage
+        }
+        else
+        {
+            playerSpriteRenderer.color = Color.Lerp(playerSpriteRenderer.color, Color.white, 0.1f); // Reset color when not in toxic area
         }
         if (isInvincible)
         {
-            playerSpriteRenderer.color = Color.Lerp(playerSpriteRenderer.color, Mathf.PingPong(Time.time * 5, 1) > 0.5f ? Color.red : Color.white, 0.2f); // Flashing effect
+            playerSpriteRenderer.color = Color.Lerp(playerSpriteRenderer.color, Mathf.PingPong(Time.time * 5, 1) > 0.5f ? new Color(playerSpriteRenderer.color.r, playerSpriteRenderer.color.g, playerSpriteRenderer.color.b, 0f) : new Color(playerSpriteRenderer.color.r, playerSpriteRenderer.color.g, playerSpriteRenderer.color.b, 1f), 0.2f); // Flashing effect
             Debug.Log(Mathf.PingPong(Time.time * 10, 1) > 0.5f);
             invincibilityTimer -= Time.deltaTime;
             if (invincibilityTimer <= 0f)
@@ -66,13 +75,18 @@ public class PlayerAttribute : MonoBehaviour
         }
     }
 
+    
     public static void TakeDamage(float damageAmount)
     {
         if (isInvincible) return;
         PlayerHealth -= damageAmount;
         invincibilityTimer = invincibilityDuration; // Start invincibility timer after taking damage
         isInvincible = true;
-
+        if (OnPlayerDamageTaken != null)
+        {
+            OnPlayerDamageTaken.Invoke();
+            Debug.Log("Player took damage and is now invincible for " + invincibilityDuration + " seconds!");
+        }
         if (PlayerHealth <= 0)
         {
             playerHealth = 0;
@@ -80,6 +94,7 @@ public class PlayerAttribute : MonoBehaviour
             Debug.Log("Player has died!");
         }
     }
+    
     public static void TakeDamageBypass(float damageAmount)
     {
         PlayerHealth -= damageAmount;
@@ -96,6 +111,8 @@ public class PlayerAttribute : MonoBehaviour
     public static void RestoreHealth(float healAmount)
     {
         PlayerHealth += healAmount;
+        if (OnPlayerHealed != null)
+            OnPlayerHealed.Invoke();
         if (PlayerHealth > 100)
         {
             playerHealth = 100;

@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b56a24cca0fd948be3559665bbdcf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MajorReef
-  healRate: 5
+  healRate: 40
   activationPoints:
   - {fileID: 7713904100821657051}
   - {fileID: 2708487399595858932}

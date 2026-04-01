@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class SavePointManager : Singleton<SavePointManager>
 {
@@ -8,7 +9,11 @@ public class SavePointManager : Singleton<SavePointManager>
     private void Start()
     {
         if (savePoints == null) savePoints = new List<Transform>();
+        GameObject defaultSavePoint = new GameObject("Default Save Point");
+        defaultSavePoint.transform.position = PlayerAttribute.PlayerTransform.position; // Set to player's starting position
+        AddSavePoint(defaultSavePoint.transform);
     }
+
 
     public void AddSavePoint(Transform savePoint)
     {
