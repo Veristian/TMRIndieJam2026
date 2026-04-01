@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sprintResource = 3f; // Total sprint resource
     [SerializeField] private float sprintDepletionRate = 1f; // Resource depletion
     [SerializeField] private float sprintRecoveryRate = 1.5f; // Resource recovery when not sprinting
+    private Transform sprite;
     private Rigidbody rb;
     private float currentSprintResource;
     private bool canSprint = false;
@@ -17,12 +18,22 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        sprite = transform.GetComponentInChildren<SpriteRenderer>().transform;
         currentSprintResource = sprintResource;
     }
 
     private void FixedUpdate()
     {
         HandlePlayerMovement(InputManager.movementInput);
+    }
+
+    private void Update()
+    {
+        if (sprite != null)
+        {
+            sprite.parent.rotation = Quaternion.Lerp(sprite.parent.rotation, Quaternion.Euler(0, Mathf.Atan2(-InputManager.movementInput.y, InputManager.movementInput.x) * Mathf.Rad2Deg, 0), 0.1f);
+            sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(InputManager.movementInput.x) * Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
+        }
     }
 
     private void HandlePlayerMovement(Vector2 movementInput)

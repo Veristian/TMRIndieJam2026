@@ -18,7 +18,6 @@ public class Predator : Agent
     [Header("References")]
     // public Transform player;
     public List<Transform> patrolPoints = new List<Transform>();
-    private Transform sprite;
 
     private int patrolIndex;
     [Header("Attack Settings")]
@@ -49,7 +48,6 @@ public class Predator : Agent
     {
         startPosition = transform.position;
         currentState = State.Patrol;
-        if (sprite == null) sprite = transform.GetComponentInChildren<SpriteRenderer>().transform;
         if (patrolPoints.Count == 0)
         {
             for (int i = 0; i < 4; i++)
@@ -103,7 +101,7 @@ public class Predator : Agent
 
         if (sprite != null)
         {
-            sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(PlayerAttribute.PlayerTransform.position.x - transform.position.x)*Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
+            sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(agent.velocity.x) * Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
         }
     }
 
@@ -142,7 +140,7 @@ public class Predator : Agent
         if (dist <= attackRange + transform.localScale.x * col.radius)
         {
             currentState = State.Attack;
-            attackTimer = attackTimer + attackCooldown - attackCooldown/10f; 
+            attackTimer = attackTimer + attackCooldown - attackCooldown/4f; 
         }
     }
 

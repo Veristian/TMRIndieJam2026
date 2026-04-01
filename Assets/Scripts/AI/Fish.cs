@@ -32,6 +32,10 @@ public class Fish : Agent
         {
             Flee();
         }
+        if (sprite != null)
+        {
+            sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(agent.velocity.x) * Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
+        }
         
     }
 
