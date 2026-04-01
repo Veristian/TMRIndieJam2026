@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (sprite != null)
         {
-            sprite.parent.rotation = Quaternion.Lerp(sprite.parent.rotation, Quaternion.Euler(0, Mathf.Atan2(-InputManager.movementInput.y, InputManager.movementInput.x) * Mathf.Rad2Deg, 0), 0.1f);
+            if (InputManager.movementInput != Vector2.zero)
+                sprite.parent.rotation = Quaternion.Lerp(sprite.parent.rotation, Quaternion.Euler(0, Mathf.Atan2(-InputManager.movementInput.y, InputManager.movementInput.x) * Mathf.Rad2Deg, 0), 0.1f);
             sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(InputManager.movementInput.x) * Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
         }
     }
