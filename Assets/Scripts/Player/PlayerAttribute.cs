@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Experimental.GlobalIllumination;
 public class PlayerAttribute : MonoBehaviour
 {
     public static event System.Action OnPlayerDamageTaken;
@@ -29,11 +30,13 @@ public class PlayerAttribute : MonoBehaviour
         set { playerTransform = value; }
     }
     private SpriteRenderer playerSpriteRenderer;
+    private Light playerLight;
     private PlayerEffects playerEffects;
     private void Awake()
     {
         playerTransform = transform;
         playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        playerLight = GetComponentInChildren<Light>();
         playerEffects = GetComponent<PlayerEffects>();
     }
     private void Reset()
@@ -65,12 +68,14 @@ public class PlayerAttribute : MonoBehaviour
         if (isInvincible)
         {
             playerSpriteRenderer.color = Color.Lerp(playerSpriteRenderer.color, Mathf.PingPong(Time.time * 5, 1) > 0.5f ? new Color(playerSpriteRenderer.color.r, playerSpriteRenderer.color.g, playerSpriteRenderer.color.b, 0f) : new Color(playerSpriteRenderer.color.r, playerSpriteRenderer.color.g, playerSpriteRenderer.color.b, 1f), 0.2f); // Flashing effect
+            playerLight.intensity = Mathf.PingPong(Time.time * 5, 100f);
             Debug.Log(Mathf.PingPong(Time.time * 10, 1) > 0.5f);
             invincibilityTimer -= Time.deltaTime;
             if (invincibilityTimer <= 0f)
             {
                 isInvincible = false;
                 playerSpriteRenderer.color = Color.white; // Reset color when invincibility ends
+                playerLight.intensity = 100f; // Reset light intensity
             }
         }
     }
