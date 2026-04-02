@@ -1,4 +1,5 @@
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -11,7 +12,8 @@ public class CameraManager : Singleton<CameraManager>
     private GameObject vignetteLv2;
     [SerializeField]
     private GameObject vignetteLv3;
-
+    public float cameraSwimZoom = 12f;
+    public float cameraSprintZoom = 13f;
     protected override void Awake()
     {
         base.Awake();
@@ -35,6 +37,19 @@ public class CameraManager : Singleton<CameraManager>
         };  
         IncrementVignetteLevel();
 
+    }
+
+    private void Update()
+    {
+
+        if (PlayerAttribute.isSprinting)
+        {
+            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(cinemachineCamera.Lens.FieldOfView, cameraSprintZoom, 0.1f);
+        }
+        else
+        {
+            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(cinemachineCamera.Lens.FieldOfView, cameraSwimZoom, 0.1f);
+        }
     }
 
     public void IncrementVignetteLevel()

@@ -44,7 +44,7 @@ public class PlayerAttribute : MonoBehaviour
         playerTransform = transform;
     }
 
-
+    public static bool isSprinting = false;
     private static bool insideToxicArea = false;
     public static bool InsideToxicArea
     {

@@ -10,7 +10,7 @@ public class Mines : MonoBehaviour
     private bool playerInRange = false;
     private ParticleSystem explosionEffect;
     private SpriteRenderer spriteRenderer;
-    private Light light;
+    private Light mineLight;
     private SphereCollider col;
     private CinemachineImpulseSource cinemachineImpulseSource;
     private void Awake()
@@ -20,7 +20,7 @@ public class Mines : MonoBehaviour
         explosionEffect = GetComponentInChildren<ParticleSystem>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
-        light = GetComponentInChildren<Light>();
+        mineLight = GetComponentInChildren<Light>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -64,7 +64,7 @@ public class Mines : MonoBehaviour
     private void DestroyMine()
     {
         explosionEffect.Play();
-        light.enabled = true; // Enable the explosion light
+        mineLight.enabled = true; // Enable the explosion light
         spriteRenderer.enabled = false; // Hide the mine's sprite
         Destroy(gameObject, explosionEffect.main.duration); // Destroy the mine after the explosion effect finishes
     }

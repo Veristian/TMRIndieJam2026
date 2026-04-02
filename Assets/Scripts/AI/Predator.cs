@@ -19,10 +19,11 @@ public class Predator : Agent
     [Header("References")]
     // public Transform player;
     public List<Transform> patrolPoints = new List<Transform>();
+    // public BoxCollider attackCollider;
+    private Animator animator;
 
     private int patrolIndex;
     [Header("Attack Settings")]
-    [SerializeField] private float damageAmount = 20f;
     [SerializeField] private float attackCooldown = 2f;
 
     [Header("Ranges")]
@@ -41,13 +42,14 @@ public class Predator : Agent
     private float patrolLimit = 10f;
 
     private Vector3 startPosition;
-    private bool attacking = false;
-    private CinemachineImpulseSource cinemachineCollisionImpulseSource;
-    private bool hasDamagedPlayer = false;
+    // private bool attacking = false;
+    // private CinemachineImpulseSource cinemachineCollisionImpulseSource;
+    // private bool hasDamagedPlayer = false;
 
     private void Start()
     {
-        cinemachineCollisionImpulseSource = GetComponent<CinemachineImpulseSource>();
+        // cinemachineCollisionImpulseSource = GetComponent<CinemachineImpulseSource>();
+        animator = GetComponentInChildren<Animator>();
         startPosition = transform.position;
         currentState = State.Patrol;
         if (patrolPoints.Count == 0)
@@ -60,6 +62,7 @@ public class Predator : Agent
                 patrolPoints.Add(pointObj.transform);
             }
         }
+        
 
         GoToNextPatrol();
     }
@@ -102,10 +105,14 @@ public class Predator : Agent
                 break;
         }
 
-        if (sprite != null)
+        if (sprite != null && agent.velocity.magnitude > 0.1f)
         {
             sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(agent.velocity.x) * Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
         }
+        // else if (sprite != null)
+        // {
+        //     sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(agent.velocity.x) * Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
+        // }
     }
 
     void Patrol(float dist)
@@ -163,44 +170,62 @@ public class Predator : Agent
 
         if (attackTimer >= attackCooldown && CanSeePlayer())
         {
-            Lunge();
+            StartChomp();
             attackTimer = 0f;
         }
     }
 
-    void Lunge()
+    void StartChomp()
     {
-        Debug.Log("Lunge Attack!");
-        rb.isKinematic = false;
-        // Optional: quick forward burst
-        Vector3 dir = (PlayerAttribute.PlayerTransform.position - transform.position).normalized;
-        rb.AddForce(dir * 20f, ForceMode.VelocityChange);
-
-        attacking = true;
-        Invoke(nameof(EndAttack), 0.5f); // Attack lasts 0.5 seconds
+        animator.SetTrigger("EatTrigger");
     }
 
-    void EndAttack()
-    {
-        attacking = false;
-        rb.isKinematic = true;
-        hasDamagedPlayer = false;
-    }
+    // public void Chomp()
+    // {
+    //     Debug.Log("Chomp Attack!");
+    //     //BoxCast to detect player
+    //     Physics.BoxCast(attackCollider.bounds.center, attackCollider.bounds.extents, transform.forward, out RaycastHit hit, transform.rotation, attackRange, playerMask);
+    //     if (hit.collider == null) {
+    //         Debug.Log("Attack missed!");
+    //         return;
+    //     }
+    //     PlayerAttribute.TakeDamage(damageAmount); // Example damage value
+    //     cinemachineCollisionImpulseSource.GenerateImpulseWithVelocity((PlayerAttribute.PlayerTransform.position - transform.position).normalized * 5f);
+    // }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (attacking && !hasDamagedPlayer)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Debug.Log("Collided with Player during attack!");
-                PlayerAttribute.TakeDamage(damageAmount); // Example damage value
-                cinemachineCollisionImpulseSource.GenerateImpulseWithVelocity((PlayerAttribute.PlayerTransform.position - transform.position).normalized * 5f);
-                hasDamagedPlayer = true;
+    // void Lunge()
+    // {
+    //     Debug.Log("Lunge Attack!");
+    //     rb.isKinematic = false;
+    //     // Optional: quick forward burst
+    //     Vector3 dir = (PlayerAttribute.PlayerTransform.position - transform.position).normalized;
+    //     rb.AddForce(dir * 20f, ForceMode.VelocityChange);
+
+    //     attacking = true;
+    //     Invoke(nameof(EndAttack), 0.5f); // Attack lasts 0.5 seconds
+    // }
+
+    // void EndAttack()
+    // {
+    //     attacking = false;
+    //     rb.isKinematic = true;
+    //     hasDamagedPlayer = false;
+    // }
+
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     if (attacking && !hasDamagedPlayer)
+    //     {
+    //         if (collision.gameObject.CompareTag("Player"))
+    //         {
+    //             Debug.Log("Collided with Player during attack!");
+    //             PlayerAttribute.TakeDamage(damageAmount); // Example damage value
+    //             cinemachineCollisionImpulseSource.GenerateImpulseWithVelocity((PlayerAttribute.PlayerTransform.position - transform.position).normalized * 5f);
+    //             hasDamagedPlayer = true;
             
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
     void GiveUp()
     {

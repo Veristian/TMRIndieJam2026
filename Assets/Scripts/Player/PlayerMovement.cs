@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private float currentSprintResource;
     private bool canSprint = false;
+    
 
     private void Awake()
     {
@@ -70,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float currentMaxSpeed = (InputManager.sprintIsHeld && canSprint) ? maxSprintSpeed : maxMoveSpeed;
-        
+        PlayerAttribute.isSprinting = InputManager.sprintIsHeld && canSprint;
         Vector3 desiredVelocity = new Vector3(movementInput.x, 0, movementInput.y) * currentMaxSpeed;
         Vector3 velocityChange = desiredVelocity - rb.linearVelocity;
         velocityChange.y = 0; // Don't change vertical velocity
