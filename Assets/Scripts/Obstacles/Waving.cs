@@ -10,6 +10,7 @@ public class Waving : MonoBehaviour
     public float frequencyZ = 1.2f;
 
     public float speed = 1f;
+    public float rotationSpeed = 30f;
 
     private Vector3 startPos;
 
@@ -30,5 +31,8 @@ public class Waving : MonoBehaviour
             startPos.y,
             startPos.z + offsetZ
         );
+
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+
     }
 }
