@@ -12,13 +12,17 @@ public class ReefActivationPoints : MonoBehaviour
     private float cleanedProgress = 0f;
     private float cleanedThreshold = 1f;
     private float cleaningRate = 0.1f; // Progress per click
+    private ParticleSystem cleaningEffect;
 
     private bool playerInRange = false;
-
+    private float timeTillDeactivation = 0.3f; // Time after which the point can be reactivated if not cleaned
+    private float deactivationTimer = 0f;
     private void Awake()
     {
         activationCollider = GetComponent<SphereCollider>();
         activationCollider.isTrigger = true;
+        deactivationTimer = timeTillDeactivation;
+        cleaningEffect = GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,11 +46,17 @@ public class ReefActivationPoints : MonoBehaviour
         if (playerInRange && InputManager.interactWasPressedThisFrame) // Left click to clean
         {
             cleanedProgress += cleaningRate;
-            if (cleanedProgress >= cleanedThreshold)
-            {
-                gameObject.SetActive(false); // Deactivate point when cleaned
-            }
         }
+        if (cleanedProgress >= cleanedThreshold)
+            {
+                cleaningEffect?.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                deactivationTimer -= Time.deltaTime;
+                if (deactivationTimer <= 0f)
+                {
+                    gameObject.SetActive(false); // Deactivate the point
+                    parentReef.DetectActivationProgress(); // Notify parent reef to check progress
+                }
+            }
     }
 
     private void OnDisable()

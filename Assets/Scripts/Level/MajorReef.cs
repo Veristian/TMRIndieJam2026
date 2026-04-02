@@ -7,6 +7,10 @@ public class MajorReef : SafeZone
     
     [SerializeField] private List<ReefActivationPoints> activationPoints = new List<ReefActivationPoints>();
     [SerializeField] private float activationThreshold = 3f;
+
+    [SerializeField] private GameObject oldReefVisuals;
+    [SerializeField] private GameObject newReefVisuals;
+    [SerializeField] private ParticleSystem activationEffect;
     private float activationProgress = 0f;
 
 
@@ -40,6 +44,10 @@ public class MajorReef : SafeZone
         SetSafeZoneActive(true);
         SavePointManager.Instance.AddSavePoint(savePoint);
         Debug.Log("Major Reef Activated! Safe zone is now active and save point added.");
+
+        if (oldReefVisuals != null) oldReefVisuals.SetActive(false);
+        if (newReefVisuals != null) newReefVisuals.SetActive(true);
+        if (activationEffect != null) activationEffect.Play();
     }
 
     [Button("Detect Activation Progress")]
