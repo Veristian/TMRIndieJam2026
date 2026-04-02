@@ -63,6 +63,7 @@ public class Predator : Agent
 
         GoToNextPatrol();
     }
+    
 
     void FixedUpdate()
     {

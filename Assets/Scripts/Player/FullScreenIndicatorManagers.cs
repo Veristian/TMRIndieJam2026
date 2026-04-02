@@ -76,8 +76,19 @@ public class FullScreenIndicatorManagers : MonoBehaviour
             inToxicWaterMaterial.SetFloat("_Alpha", transparency);
         }
     }
-    
 
-    
+    private void OnEnable()
+    {
+        UpdateLowHealthVignette(0f);
+        UpdateInToxicWaterEffect(0f, 0f);
+    }
+
+    private void OnDisable()
+    {
+        UpdateLowHealthVignette(0f);
+        UpdateInToxicWaterEffect(0f, 0f);
+    }
+
+
 
 }
