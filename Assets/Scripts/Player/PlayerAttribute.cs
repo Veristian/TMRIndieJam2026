@@ -46,6 +46,10 @@ public class PlayerAttribute : MonoBehaviour
 
 
     private static bool insideToxicArea = false;
+    public static bool InsideToxicArea
+    {
+        get { return insideToxicArea; }
+    }
 
     private static float toxicDamageRate = 5f; // Damage per second when inside toxic area
     public static void SetInsideToxicArea(bool inside, float damageRate = 5f)
