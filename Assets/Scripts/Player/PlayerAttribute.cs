@@ -5,6 +5,7 @@ public class PlayerAttribute : MonoBehaviour
 {
     public static event System.Action OnPlayerDamageTaken;
     public static event System.Action OnPlayerHealed;
+    public static event System.Action OnPlayerAteFood;
     private static bool isHiddenFromPredators = false;
     public static bool IsHiddenFromPredators
     {
@@ -127,7 +128,12 @@ public class PlayerAttribute : MonoBehaviour
             playerHealth = 100;
         }
     }
-    
+    public static void EatFood(float healAmount)
+    {
+        RestoreHealth(healAmount);
+        if (OnPlayerAteFood != null)
+            OnPlayerAteFood.Invoke();
+    }
 
 
     [Button("Toggle Hide From Predators")]

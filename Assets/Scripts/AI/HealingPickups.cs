@@ -13,7 +13,7 @@ public class HealingPickups : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerAttribute.RestoreHealth(healingAmount);
+            PlayerAttribute.EatFood(healingAmount);
             Debug.Log("Player collected healing pickup! Health: " + PlayerAttribute.PlayerHealth);
             DestroySelf();
         }
