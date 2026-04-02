@@ -70,6 +70,17 @@ public class AudioManager : Singleton<AudioManager>
         return source;
     }
 
+    private void Reset()
+    {
+        //make list of all sound types in enum
+        sounds = new List<SoundData>();
+        foreach (SFX sfx in System.Enum.GetValues(typeof(SFX)))
+        {
+            sounds.Add(new SoundData { sfx = sfx });
+        }
+        
+    }
+
 
     public void Play(SFX sfx)
     {
