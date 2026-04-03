@@ -42,6 +42,8 @@ public class Predator : Agent
     private float patrolLimit = 10f;
 
     private Vector3 startPosition;
+
+
     // private bool attacking = false;
     // private CinemachineImpulseSource cinemachineCollisionImpulseSource;
     // private bool hasDamagedPlayer = false;
@@ -123,6 +125,7 @@ public class Predator : Agent
 
     void Patrol(float dist)
     {
+        if (isDisabled) return;
         patrolTimer += Time.deltaTime;
 
         if (dist <= detectRange + transform.localScale.x * col.radius)
@@ -144,6 +147,7 @@ public class Predator : Agent
 
     void Chase(float dist)
     {
+        if (isDisabled) return;
         MoveTo(PlayerAttribute.PlayerTransform.position);
         patrolTimer = 0f;
 
@@ -162,6 +166,7 @@ public class Predator : Agent
 
     void Attack(float dist)
     {
+        if (isDisabled) return;
         MoveTo(transform.position); // stop moving
         attackTimer += Time.deltaTime;
         if (CanSeePlayer())
@@ -184,7 +189,14 @@ public class Predator : Agent
 
     void StartChomp()
     {
+        if (isDisabled) return;
         animator.SetTrigger("EatTrigger");
+    }
+
+    public override void DisableAgent()
+    {
+        currentState = State.GiveUp;
+        base.DisableAgent();
     }
 
     // public void Chomp()
@@ -236,12 +248,14 @@ public class Predator : Agent
 
     void GiveUp()
     {
+        if (isDisabled) return;
         MoveTo(startPosition);
         currentState = State.Return;
     }
 
     void Return()
     {
+        if (isDisabled) return;
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             patrolTimer = 0f;
@@ -252,6 +266,7 @@ public class Predator : Agent
 
     void GoToNextPatrol()
     {
+        if (isDisabled) return;
         if (patrolPoints.Count == 0) return;
 
         MoveTo(patrolPoints[patrolIndex].position);
@@ -260,7 +275,7 @@ public class Predator : Agent
 
     bool CanSeePlayer()
     {
-        
+        if (isDisabled) return false;
         Vector3 direction = (PlayerAttribute.PlayerTransform.position - eyePoint.position).normalized;
         float distance = Vector3.Distance(eyePoint.position, PlayerAttribute.PlayerTransform.position);
 

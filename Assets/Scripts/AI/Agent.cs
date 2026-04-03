@@ -7,10 +7,14 @@ public class Agent : MonoBehaviour
     protected Rigidbody rb;
     protected SphereCollider col;
     protected Transform sprite;
-    private bool softEnabled = false;
-    private bool softDisabled = false;
+    protected bool softEnabled = false;
+    protected bool softDisabled = false;
     public float distanceToSoftEnable = 15f;
     public float distanceToSoftDisable = 30f;
+    [SerializeField] protected bool alwaysSoftEnable = true;
+    [SerializeField] protected bool alwaysSoftDisable = true;
+
+    protected bool isDisabled;
 
     protected virtual void Awake()
     {
@@ -18,32 +22,52 @@ public class Agent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
         if (sprite == null) sprite = transform.GetComponentInChildren<SpriteRenderer>().transform;
-
+        if (alwaysSoftDisable) softDisabled = true;
+        if (alwaysSoftEnable)
+        {
+            softEnabled = true;
+            DisableAgent();
+        } 
     }
 
     protected void MoveTo(Vector3 destination)
     {
         if (agent != null)
         {
-            agent.SetDestination(destination);
+            try
+            {
+                agent.SetDestination(destination);
+            }
+            catch
+            {
+                Debug.LogWarning("Set Destination Failed");
+            }
         }
     }
 
+    [ContextMenu("Disable Agent")]
     public virtual void DisableAgent()
     {
         if (agent != null) agent.enabled = false;
         if (col != null) col.enabled = false;
         if (sprite != null) sprite.gameObject.SetActive(false);
+        softDisabled = false;
+        if (alwaysSoftEnable) softEnabled = true;
+        isDisabled = true;
     }
-
+    [ContextMenu("Enable Agent")]
     public virtual void EnableAgent()
     {
         if (agent != null) agent.enabled = true;
         if (col != null) col.enabled = true;
         if (sprite != null) sprite.gameObject.SetActive(true);
+        softEnabled = false;
+        if (alwaysSoftDisable) softDisabled = true;
+        isDisabled = false;
     }
 
     //ready to enable when player is close enough, but not yet active
+    [ContextMenu("Soft Enable Agent")]
     public virtual void SoftEnableAgent()
     {
         if (!softEnabled)
@@ -51,7 +75,7 @@ public class Agent : MonoBehaviour
             softEnabled = true;
         }
     }
-
+    [ContextMenu("Soft Disable Agent")]
     public virtual void SoftDisableAgent()
     {
         if (!softDisabled)

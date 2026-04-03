@@ -376,7 +376,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154257506}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 027fbc29b0b947641a12e2faf5c52782, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: e15177d3748e6454ca43269c26eca88a, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -393,7 +393,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0.3
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -415,6 +415,18 @@ PrefabInstance:
     - target: {fileID: 969516337248056708, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
       propertyPath: m_Name
       value: MANAGERS
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362004513202674826, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508907833705580408, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871329620097463963, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5344381050366665341, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
       propertyPath: m_LocalPosition.x
@@ -511,6 +523,10 @@ PrefabInstance:
     - target: {fileID: 7193981297705886275, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
       propertyPath: sounds.Array.data[12].volume
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595455758955469270, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
+      propertyPath: fadeDuration
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7595455758955469270, guid: 95d9fd1a69ff8374f88862721b7c3299, type: 3}
       propertyPath: fadeInGradient.key0.b
@@ -695,6 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0e487f6359d7247be6da2fb42add40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Epilogue
+  audioSource: {fileID: 0}
+  delay: 1
 --- !u!1 &1374355869
 GameObject:
   m_ObjectHideFlags: 0

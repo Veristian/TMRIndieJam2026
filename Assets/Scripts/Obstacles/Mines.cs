@@ -8,7 +8,6 @@ public class Mines : MonoBehaviour
     [SerializeField] private float timeToExplode = 2f; // Time in seconds before the mine explodes after being triggered
     [SerializeField] private LayerMask playerMask;
     private bool isTriggered = false;
-    private bool playerInRange = false;
     private ParticleSystem explosionEffect;
     private SpriteRenderer spriteRenderer;
     private Light mineLight;
@@ -29,16 +28,7 @@ public class Mines : MonoBehaviour
         {
             StartCoroutine(ExplodeAfterDelay(other.gameObject));
             isTriggered = true;
-            playerInRange = true;
             Debug.Log("Player hit a mine and took " + damageAmount + " damage!");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
         }
     }
 
