@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa767229e65c5b4493c9de6074bf67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToxicWater
-  damageRate: 5
+  damageRate: 20
 --- !u!198 &5716435671407300998
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -38,6 +38,7 @@ public class AudioManager : Singleton<AudioManager>
 
     private List<AudioSource> pool = new List<AudioSource>();
     private Dictionary<AudioSource, Coroutine> activeFades = new Dictionary<AudioSource, Coroutine>();
+    private Dictionary<AudioSource, AudioSource> audioToFromPair = new Dictionary<AudioSource, AudioSource>();
     private Dictionary<AudioSource, Coroutine> activeAudio = new Dictionary<AudioSource, Coroutine>();
 
     protected override void Awake()
@@ -240,7 +241,7 @@ public class AudioManager : Singleton<AudioManager>
         source.transform.parent = transform;
     }
 
-    public AudioSource CrossFade(AudioSource fromSource, SFX toSFX, float duration = 1f)
+    public AudioSource CrossFade(AudioSource fromSource, SFX toSFX, float duration = 5f)
     {
         if (!soundDict.ContainsKey(toSFX))
         {
@@ -249,28 +250,50 @@ public class AudioManager : Singleton<AudioManager>
         }
 
         SoundData data = soundDict[toSFX];
+        var previousActiveAudio = StopFade(fromSource);
+        AudioSource toSource = null;
+        if (previousActiveAudio == null)
+        {
+            toSource = GetSource();
+            toSource.clip = data.clip;
+            toSource.volume = 0f;
+            toSource.loop = true;
+            toSource.Play();
+            StopFade(toSource);
+        }
+        else
+        {
+            toSource = previousActiveAudio;
+            if (data.clip != toSource.clip)
+            {
+                toSource.clip = data.clip;
+                toSource.Play();
+            }
+            
+            toSource.loop = true;
+            StopFade(toSource);
+        }
 
-        AudioSource toSource = GetSource();
-        toSource.clip = data.clip;
-        toSource.volume = 0f;
-        toSource.loop = true;
-        toSource.Play();
-
-        StopFade(fromSource);
-        StopFade(toSource);
 
         Coroutine fade = StartCoroutine(CrossFadeRoutine(fromSource, toSource, data.volume, duration));
 
         // Track both sources (important!)
         if (fromSource != null) activeFades[fromSource] = fade;
         activeFades[toSource] = fade;
-
+        audioToFromPair[toSource] = fromSource;
         return toSource;
     }
-    void StopFade(AudioSource source)
+    AudioSource StopFade(AudioSource source)
     {
-        if (source == null) return;
-
+        if (source == null) return null;
+        AudioSource previousPair = null;
+        try
+        {
+            previousPair = audioToFromPair[source];
+        }
+        catch
+        {
+        }
         if (activeFades.TryGetValue(source, out Coroutine c))
         {
             try
@@ -281,6 +304,8 @@ public class AudioManager : Singleton<AudioManager>
             {}
             activeFades.Remove(source);
         }
+        if (previousPair == null) return null;
+        else return previousPair;
 
         // source.transform.parent = transform;
     }
@@ -326,5 +351,7 @@ public class AudioManager : Singleton<AudioManager>
 
         if (from != null) activeFades.Remove(from);
         if (to != null) activeFades.Remove(to);
+
+        if (to != null) audioToFromPair.Remove(to);
     }
 }

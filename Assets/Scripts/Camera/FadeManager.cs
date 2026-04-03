@@ -33,6 +33,11 @@ public class FadeManager : Singleton<FadeManager>
         StartCoroutine(FadeOut(sceneName));
     }
 
+    public void FadeInScene()
+    {
+        StartCoroutine(FadeIn());
+    }
+
     private IEnumerator FadeIn()
     {
         float timer = 0f;

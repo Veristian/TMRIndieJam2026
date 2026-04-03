@@ -42,6 +42,7 @@ public class SavePointManager : Singleton<SavePointManager>
     [Button("Return To Last Save Point")]
     public void ReturnToLastSavePoint()
     {
+        FadeManager.Instance.FadeInScene();
         Vector3 lastSavePoint = GetLastSavePoint();
         PlayerAttribute.PlayerTransform.position = lastSavePoint;
         PlayerAttribute.PlayerHealth = 100; // Restore health on respawn
