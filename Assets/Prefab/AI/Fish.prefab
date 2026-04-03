@@ -184,7 +184,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5435730438971940547}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 4
   m_Acceleration: 8
@@ -212,6 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fish
   distanceToSoftEnable: 15
   distanceToSoftDisable: 30
+  alwaysSoftEnable: 1
+  alwaysSoftDisable: 1
   areaCenter: {x: 0, y: 0, z: 0}
   areaRadius: 15
   detectionRadius: 5

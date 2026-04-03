@@ -47,12 +47,15 @@ public class Predator : Agent
     // private bool attacking = false;
     // private CinemachineImpulseSource cinemachineCollisionImpulseSource;
     // private bool hasDamagedPlayer = false;
-
+    protected override void Awake()
+    {
+        startPosition = transform.position;
+        animator = GetComponentInChildren<Animator>();
+        base.Awake();
+    } 
     private void Start()
     {
         // cinemachineCollisionImpulseSource = GetComponent<CinemachineImpulseSource>();
-        animator = GetComponentInChildren<Animator>();
-        startPosition = transform.position;
         currentState = State.Patrol;
         if (patrolPoints.Count == 0)
         {
