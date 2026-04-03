@@ -508,13 +508,13 @@ MonoBehaviour:
     volume: 1
   - sfx: 9
     clip: {fileID: 8300000, guid: a56eb5370370f0d4aa7d0e55e6991b1b, type: 3}
-    volume: 0.7
+    volume: 0.2
   - sfx: 10
     clip: {fileID: 8300000, guid: 98d1d338403a4fe4c89f5d2ffd3d2cdb, type: 3}
     volume: 0.2
   - sfx: 11
     clip: {fileID: 8300000, guid: 2921fdf4d0f385542b4c7042b3257632, type: 3}
-    volume: 1
+    volume: 0.3
   - sfx: 12
     clip: {fileID: 8300000, guid: 61e64d5a64062a344b947043984e5fb4, type: 3}
     volume: 0.1
