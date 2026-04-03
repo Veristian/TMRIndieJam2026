@@ -10388,12 +10388,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   maxMoveSpeed: 5
-  maxSprintSpeed: 10
+  maxSprintSpeed: 8
   moveForce: 4
   waterFriction: 3
-  sprintResource: 3
+  sprintResource: 2
   sprintDepletionRate: 1
-  sprintRecoveryRate: 1.5
+  sprintRecoveryRate: 1
 --- !u!114 &6789056318066283073
 MonoBehaviour:
   m_ObjectHideFlags: 0

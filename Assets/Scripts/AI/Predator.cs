@@ -131,7 +131,7 @@ public class Predator : Agent
         if (isDisabled) return;
         patrolTimer += Time.deltaTime;
 
-        if (dist <= detectRange + transform.localScale.x * col.radius)
+        if (dist <= detectRange + transform.localScale.x * col.radius && !PlayerAttribute.IsHiddenFromPredators)
         {
             currentState = State.Chase;
             return;
@@ -156,7 +156,7 @@ public class Predator : Agent
 
         if (dist > (detectRange + transform.localScale.x * col.radius) * 1.5f || PlayerAttribute.IsHiddenFromPredators)
         {
-            currentState = State.Patrol;
+            currentState = State.Return;
             return;
         }
 
