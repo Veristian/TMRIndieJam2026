@@ -490,10 +490,10 @@ MonoBehaviour:
     volume: 0.3
   - sfx: 3
     clip: {fileID: 8300000, guid: e1200765668cb7448a9dcdb90976aa95, type: 3}
-    volume: 0.1
+    volume: 0.2
   - sfx: 4
     clip: {fileID: 8300000, guid: f5bc53d9dd4d2a24a82a6ba3d8a5e106, type: 3}
-    volume: 1
+    volume: 0.8
   - sfx: 5
     clip: {fileID: 8300000, guid: fa8ced0721be4264e93ac8178a2c69d3, type: 3}
     volume: 1
@@ -517,7 +517,7 @@ MonoBehaviour:
     volume: 0.3
   - sfx: 12
     clip: {fileID: 8300000, guid: 61e64d5a64062a344b947043984e5fb4, type: 3}
-    volume: 0.1
+    volume: 0.2
 --- !u!1 &3057942291874160474
 GameObject:
   m_ObjectHideFlags: 0

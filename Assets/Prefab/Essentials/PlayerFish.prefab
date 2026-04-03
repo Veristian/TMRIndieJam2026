@@ -10420,6 +10420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEffects
   healingEffect: {fileID: 8873676076894172626}
   damageEffect: {fileID: 1336001231690031411}
+  animator: {fileID: 1814015665013307778}
 --- !u!1 &6408485016686096657
 GameObject:
   m_ObjectHideFlags: 0

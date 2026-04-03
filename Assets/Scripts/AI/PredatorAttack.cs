@@ -26,6 +26,8 @@ public class PredatorAttack : MonoBehaviour
     // Call this from animation event
     public void Chomp()
     {
+        if (PlayerAttribute.IsHiddenFromPredators)
+            return;
         Debug.Log("Chomp Attack!");
         Vector3 center = attackCollider.bounds.center;
         Vector3 halfExtents = attackCollider.bounds.extents;

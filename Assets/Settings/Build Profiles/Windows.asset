@@ -884,7 +884,8 @@ MonoBehaviour:
     - line: '|   il2cppCompilerConfiguration: {}'
     - line: '|   il2cppCodeGeneration: {}'
     - line: '|   il2cppStacktraceInformation: {}'
-    - line: '|   managedStrippingLevel: {}'
+    - line: '|   managedStrippingLevel:'
+    - line: '|     Standalone: 0'
     - line: '|   incrementalIl2cppBuild: {}'
     - line: '|   suppressCommonWarnings: 1'
     - line: '|   allowUnsafeCode: 0'
@@ -1000,7 +1001,7 @@ MonoBehaviour:
     - rid: 2674369666597519453
       type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
       data:
-        m_Development: 0
+        m_Development: 1
         m_ConnectProfiler: 0
         m_BuildWithDeepProfilingSupport: 0
         m_AllowDebugging: 0
