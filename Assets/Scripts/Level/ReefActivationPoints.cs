@@ -46,6 +46,7 @@ public class ReefActivationPoints : MonoBehaviour
         if (playerInRange && InputManager.interactWasPressedThisFrame) // Left click to clean
         {
             cleanedProgress += cleaningRate;
+            AudioManager.Instance.PlayOneShotFree(SFX.ClearingReefs);
         }
         if (cleanedProgress >= cleanedThreshold)
             {

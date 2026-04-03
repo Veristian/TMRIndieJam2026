@@ -25,9 +25,9 @@ public class Fish : Agent
             areaCenter = transform.position;
     }
 
-    private void Update()
+    protected override void Update()
     {
-
+        base.Update();
         if (Vector3.Distance(transform.position, PlayerAttribute.PlayerTransform.position) <= detectionRadius)
         {
             Flee();

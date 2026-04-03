@@ -48,7 +48,7 @@ public class FullScreenIndicatorManagers : MonoBehaviour
         {
             UpdateLowHealthVignette(0f);
         }
-        toxicWaterExposure = Mathf.Lerp(toxicWaterExposure, PlayerAttribute.InsideToxicArea ? 1f : 0f, 0.1f);
+        toxicWaterExposure = Mathf.Lerp(toxicWaterExposure, PlayerAttribute.InsideToxicArea ? 1f : 0f, Time.deltaTime * 10);
         float playerToxicWaterPercentage = toxicWaterExposure*(maxInToxicWaterVignette - minInToxicWaterVignette) + minInToxicWaterVignette;
         float playerToxicWaterTransparency = toxicWaterExposure*(maxInToxicWaterTransparency - minInToxicWaterTransparency) + minInToxicWaterTransparency;
         UpdateInToxicWaterEffect(playerToxicWaterPercentage, playerToxicWaterTransparency);

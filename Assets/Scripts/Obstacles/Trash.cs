@@ -15,6 +15,7 @@ public class Trash : MonoBehaviour
         {
             PlayerAttribute.TakeDamage(damageAmount);
             Debug.Log("Player hit trash! Health: " + PlayerAttribute.PlayerHealth);
+            AudioManager.Instance.PlayOneShotFree(SFX.TrashPickup);
             DestroyTrash();
         }
     }

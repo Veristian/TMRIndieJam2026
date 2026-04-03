@@ -44,11 +44,11 @@ public class CameraManager : Singleton<CameraManager>
 
         if (PlayerAttribute.isSprinting)
         {
-            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(cinemachineCamera.Lens.FieldOfView, cameraSprintZoom, 0.1f);
+            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(cinemachineCamera.Lens.FieldOfView, cameraSprintZoom, Time.deltaTime * 10);
         }
         else
         {
-            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(cinemachineCamera.Lens.FieldOfView, cameraSwimZoom, 0.1f);
+            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(cinemachineCamera.Lens.FieldOfView, cameraSwimZoom, Time.deltaTime * 10);
         }
     }
 

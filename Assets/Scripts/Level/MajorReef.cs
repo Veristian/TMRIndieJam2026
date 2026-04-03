@@ -48,6 +48,7 @@ public class MajorReef : SafeZone
         if (oldReefVisuals != null) oldReefVisuals.SetActive(false);
         if (newReefVisuals != null) newReefVisuals.SetActive(true);
         if (activationEffect != null) activationEffect.Play();
+        AudioManager.Instance.PlayOneShot(SFX.SavePointGot);
     }
 
     [Button("Detect Activation Progress")]

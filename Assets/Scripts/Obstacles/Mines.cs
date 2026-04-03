@@ -64,6 +64,7 @@ public class Mines : MonoBehaviour
     private void DestroyMine()
     {
         explosionEffect.Play();
+        AudioManager.Instance.PlayOneShotFree(SFX.UnderwaterExplosion);
         mineLight.enabled = true; // Enable the explosion light
         spriteRenderer.enabled = false; // Hide the mine's sprite
         Destroy(gameObject, explosionEffect.main.duration); // Destroy the mine after the explosion effect finishes

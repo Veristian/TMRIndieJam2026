@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (InputManager.movementInput != Vector2.zero)
             {
-                sprite.parent.rotation = Quaternion.Lerp(sprite.parent.rotation, Quaternion.Euler(0, Mathf.Atan2(-InputManager.movementInput.y, InputManager.movementInput.x) * Mathf.Rad2Deg, 0), 0.1f);
+                sprite.parent.rotation = Quaternion.Lerp(sprite.parent.rotation, Quaternion.Euler(0, Mathf.Atan2(-InputManager.movementInput.y, InputManager.movementInput.x) * Mathf.Rad2Deg, 0), Time.deltaTime * 10);
                 sprite.localScale = new Vector3(sprite.localScale.x, Mathf.Sign(InputManager.movementInput.x) * Mathf.Abs(sprite.localScale.y), sprite.localScale.z);
             }
         }
@@ -67,7 +67,12 @@ public class PlayerMovement : MonoBehaviour
             Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
             Vector3 frictionForce = -horizontalVelocity * waterFriction;
             rb.AddForce(frictionForce, ForceMode.Acceleration);
+            PlayerAttribute.isMoving = false;
             return;
+        }
+        else
+        {
+            PlayerAttribute.isMoving = true;
         }
 
         float currentMaxSpeed = (InputManager.sprintIsHeld && canSprint) ? maxSprintSpeed : maxMoveSpeed;

@@ -19,13 +19,14 @@ public class PredatorAttack : MonoBehaviour
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
-
+    public void ChompSound()
+    {
+        AudioManager.Instance.PlayOneShot(SFX.PredatorAttack);
+    }
     // Call this from animation event
     public void Chomp()
     {
-
         Debug.Log("Chomp Attack!");
-
         Vector3 center = attackCollider.bounds.center;
         Vector3 halfExtents = attackCollider.bounds.extents;
         Quaternion rotation = transform.rotation;

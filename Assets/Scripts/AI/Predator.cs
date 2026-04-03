@@ -78,30 +78,36 @@ public class Predator : Agent
 
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         float distToPlayer = Vector3.Distance(transform.position, PlayerAttribute.PlayerTransform.position);
-
+        
         switch (currentState)
         {
             case State.Patrol:
                 Patrol(distToPlayer);
+                PlayerAttribute.IsChasedByPredators = false;
                 break;
 
             case State.Chase:
                 Chase(distToPlayer);
+                PlayerAttribute.IsChasedByPredators = true;
                 break;
 
             case State.Attack:
                 Attack(distToPlayer);
+                PlayerAttribute.IsChasedByPredators = true;
                 break;
 
             case State.GiveUp:
                 GiveUp();
+                PlayerAttribute.IsChasedByPredators = false;
                 break;
 
             case State.Return:
                 Return();
+                PlayerAttribute.IsChasedByPredators = false;
                 break;
         }
 
@@ -170,6 +176,7 @@ public class Predator : Agent
 
         if (attackTimer >= attackCooldown && CanSeePlayer())
         {
+            
             StartChomp();
             attackTimer = 0f;
         }
