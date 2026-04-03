@@ -73,9 +73,20 @@ public class PlayerAttribute : MonoBehaviour
     bool ambienceActive;
     bool predatorActive;
     bool healingActive;
+    float ambienceTime;
+    float predatorTime;
+    float healingTime;
+
+    float maxAmbienceTime;
+    float maxPredatorTime;
+    float maxHealingTime;
     private void Start()
     {
         // activeAmbience = AudioManager.Instance.PlayContinously(SFX.DeepSeaAmbience);
+        maxAmbienceTime = AudioManager.Instance.GetAudioLength(SFX.DeepSeaAmbience);
+        maxPredatorTime = AudioManager.Instance.GetAudioLength(SFX.PredatorMusic);
+        maxHealingTime = AudioManager.Instance.GetAudioLength(SFX.Healing);
+
     }
 
     private void UpdatePlayerAudio()
@@ -84,7 +95,7 @@ public class PlayerAttribute : MonoBehaviour
         if (isHiddenFromPredators && !isChasedByPredators && !healingActive)
         {
             Debug.Log("1");
-            activeAmbience = AudioManager.Instance.CrossFade(activeAmbience, SFX.Healing);
+            activeAmbience = AudioManager.Instance.CrossFade(activeAmbience, SFX.Healing, healingTime);
             healingActive = true;
             predatorActive = false;
             ambienceActive = false;
@@ -92,7 +103,7 @@ public class PlayerAttribute : MonoBehaviour
         else if (isChasedByPredators && !isHiddenFromPredators && !predatorActive)
         {
             Debug.Log("2");
-            activeAmbience = AudioManager.Instance.CrossFade(activeAmbience, SFX.PredatorMusic);
+            activeAmbience = AudioManager.Instance.CrossFade(activeAmbience, SFX.PredatorMusic, predatorTime);
             healingActive = false;
             predatorActive = true;
             ambienceActive = false;
@@ -100,11 +111,28 @@ public class PlayerAttribute : MonoBehaviour
         else if (!ambienceActive && !isChasedByPredators && !isHiddenFromPredators)
         {
             Debug.Log("3");
-            activeAmbience = AudioManager.Instance.CrossFade(activeAmbience, SFX.DeepSeaAmbience);
+            activeAmbience = AudioManager.Instance.CrossFade(activeAmbience, SFX.DeepSeaAmbience, ambienceTime);
             healingActive = false;
             predatorActive = false;
             ambienceActive = true;
         }
+
+        if (ambienceActive) 
+        {
+            ambienceTime += Time.deltaTime;
+            if (ambienceTime > maxAmbienceTime) ambienceTime -= maxAmbienceTime;
+        }
+        if (healingActive) 
+        {
+            healingTime += Time.deltaTime;
+            if (healingTime > maxHealingTime) healingTime -= maxHealingTime;
+        }
+        if (predatorActive) 
+        {
+            predatorTime += Time.deltaTime;
+            if (predatorTime > maxPredatorTime) predatorTime -= maxPredatorTime;
+        }
+
 
         //player sound
         if (isMoving && !wasMoving)

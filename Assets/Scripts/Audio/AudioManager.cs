@@ -51,6 +51,17 @@ public class AudioManager : Singleton<AudioManager>
             soundDict[s.sfx] = s;
     }
 
+    public float GetAudioLength(SFX sfx)
+    {
+        if (!soundDict.TryGetValue(sfx, out SoundData data))
+            return 0f;
+
+        if (data.clip == null)
+            return 0f;
+
+        return data.clip.length;
+    }
+
     AudioSource GetSource()
     {
         foreach (var src in pool)
@@ -241,7 +252,7 @@ public class AudioManager : Singleton<AudioManager>
         source.transform.parent = transform;
     }
 
-    public AudioSource CrossFade(AudioSource fromSource, SFX toSFX, float duration = 5f)
+    public AudioSource CrossFade(AudioSource fromSource, SFX toSFX, float startTime, float duration = 5f)
     {
         if (!soundDict.ContainsKey(toSFX))
         {
@@ -258,6 +269,7 @@ public class AudioManager : Singleton<AudioManager>
             toSource.clip = data.clip;
             toSource.volume = 0f;
             toSource.loop = true;
+            toSource.time = startTime;
             toSource.Play();
             StopFade(toSource);
         }
@@ -267,6 +279,7 @@ public class AudioManager : Singleton<AudioManager>
             if (data.clip != toSource.clip)
             {
                 toSource.clip = data.clip;
+                toSource.time = startTime;
                 toSource.Play();
             }
             

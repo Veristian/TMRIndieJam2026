@@ -154,7 +154,7 @@ public class Predator : Agent
         MoveTo(PlayerAttribute.PlayerTransform.position);
         patrolTimer = 0f;
 
-        if (dist > (detectRange + transform.localScale.x * col.radius) * 1.5f || PlayerAttribute.IsHiddenFromPredators)
+        if (dist > (detectRange + transform.localScale.x * col.radius) * 1.5f || PlayerAttribute.IsHiddenFromPredators || agent.pathStatus != NavMeshPathStatus.PathComplete)
         {
             currentState = State.Return;
             return;
