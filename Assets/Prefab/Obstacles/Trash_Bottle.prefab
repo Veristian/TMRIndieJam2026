@@ -235,3 +235,4 @@ MonoBehaviour:
   frequencyX: 1
   frequencyZ: 1.2
   speed: 1
+  rotationSpeed: 30
