@@ -196,6 +196,7 @@ public class Predator : Agent
     public override void DisableAgent()
     {
         currentState = State.GiveUp;
+        TeleportToSpawn();
         base.DisableAgent();
     }
 
@@ -301,5 +302,10 @@ public class Predator : Agent
               Color.red);
 
         return false;
+    }
+
+    void TeleportToSpawn()
+    {
+        transform.position = startPosition;
     }
 }
