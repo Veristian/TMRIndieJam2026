@@ -44,10 +44,8 @@ public class PredatorAttack : MonoBehaviour
         {
             Debug.Log("Hit: " + col.name);
 
-            // 🔴 Apply damage
             PlayerAttribute.TakeDamage(damageAmount);
 
-            // 🟡 Apply knockback if Rigidbody exists
             Rigidbody rb = col.attachedRigidbody;
             if (rb != null)
             {
@@ -55,7 +53,6 @@ public class PredatorAttack : MonoBehaviour
                 rb.AddForce(forceDir * knockbackForce, ForceMode.Impulse);
             }
 
-            // 🎥 Camera impulse
             if (impulseSource != null)
             {
                 Vector3 impulseDir = (col.transform.position - transform.position).normalized;

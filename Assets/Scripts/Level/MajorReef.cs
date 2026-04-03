@@ -18,6 +18,7 @@ public class MajorReef : SafeZone
     {
         SetSafeZoneActive(false);
         if (savePoint == null) savePoint = transform;
+        if (newReefVisuals != null) newReefVisuals.SetActive(false);
     }
 
     [Button("Create Activation Points")]

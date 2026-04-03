@@ -5500,7 +5500,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.45
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &7667522828653416651
 MonoBehaviour:
@@ -5516,6 +5516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mines
   damageAmount: 20
   timeToExplode: 2
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7640790359357942455
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -75,7 +75,7 @@ public class PlayerAttribute : MonoBehaviour
     bool healingActive;
     private void Start()
     {
-        activeAmbience = AudioManager.Instance.PlayContinously(SFX.DeepSeaAmbience);
+        // activeAmbience = AudioManager.Instance.PlayContinously(SFX.DeepSeaAmbience);
     }
 
     private void UpdatePlayerAudio()

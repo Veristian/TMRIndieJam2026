@@ -6,6 +6,7 @@ public class Mines : MonoBehaviour
 {
     [SerializeField] private float damageAmount = 20f;
     [SerializeField] private float timeToExplode = 2f; // Time in seconds before the mine explodes after being triggered
+    [SerializeField] private LayerMask playerMask;
     private bool isTriggered = false;
     private bool playerInRange = false;
     private ParticleSystem explosionEffect;
@@ -24,7 +25,7 @@ public class Mines : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isTriggered)
         {
             StartCoroutine(ExplodeAfterDelay(other.gameObject));
             isTriggered = true;
@@ -43,18 +44,39 @@ public class Mines : MonoBehaviour
 
     IEnumerator ExplodeAfterDelay(GameObject player)
     {
-        yield return new WaitForSeconds(timeToExplode);
+        yield return new WaitForSeconds(timeToExplode*3.5f/5f);
+        AudioManager.Instance.PlayOneShotFree(SFX.UnderwaterExplosion);
+        yield return new WaitForSeconds(timeToExplode*1.5f/5f);
         if (isTriggered)
         {
-            Vector3 explosionDirection = (player.transform.position - transform.position).normalized;
-            if (playerInRange)
+            Collider[] hits = Physics.OverlapSphere(transform.position, col.radius * col.transform.localScale.x, playerMask);
+            if (hits.Length == 0)
             {
-                PlayerAttribute.TakeDamage(damageAmount);
-                player.GetComponent<Rigidbody>().AddForce(explosionDirection * 20f, ForceMode.Impulse); // Example explosion force
-                cinemachineImpulseSource.GenerateImpulseWithVelocity(explosionDirection * 2f); // Example impulse direction and magnitude
-
+                Debug.Log("Mine missed!");
             }
-            cinemachineImpulseSource.GenerateImpulseWithVelocity(explosionDirection * .5f); // Example impulse direction and magnitude
+            else
+            {
+                foreach (Collider col in hits)
+                {
+                    Debug.Log("Hit: " + col.name);
+                    PlayerAttribute.TakeDamage(damageAmount);
+
+                    Rigidbody rb = col.attachedRigidbody;
+                    if (rb != null)
+                    {
+                        Vector3 forceDir = (col.transform.position - transform.position).normalized;
+                        rb.AddForce(forceDir * 20f, ForceMode.Impulse);
+                    }
+
+                    if (cinemachineImpulseSource != null)
+                    {
+                        Vector3 impulseDir = (col.transform.position - transform.position).normalized;
+                        cinemachineImpulseSource.GenerateImpulseWithVelocity(impulseDir * 5f);
+                    }
+                }
+            }
+
+            cinemachineImpulseSource.GenerateImpulseWithVelocity(Vector3.up); // Example impulse direction and magnitude
 
             Debug.Log("Mine exploded! Player health: " + PlayerAttribute.PlayerHealth);
             DestroyMine();
@@ -64,7 +86,6 @@ public class Mines : MonoBehaviour
     private void DestroyMine()
     {
         explosionEffect.Play();
-        AudioManager.Instance.PlayOneShotFree(SFX.UnderwaterExplosion);
         mineLight.enabled = true; // Enable the explosion light
         spriteRenderer.enabled = false; // Hide the mine's sprite
         Destroy(gameObject, explosionEffect.main.duration); // Destroy the mine after the explosion effect finishes

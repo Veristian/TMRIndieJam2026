@@ -318,6 +318,7 @@ public class AudioManager : Singleton<AudioManager>
         if (from != null)
         {
             from.Stop();
+            from.volume = 0f;
             from.clip = null;
             from.gameObject.SetActive(false);
             from.transform.parent = transform;

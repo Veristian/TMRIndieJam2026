@@ -484,10 +484,10 @@ MonoBehaviour:
     volume: 1
   - sfx: 1
     clip: {fileID: 8300000, guid: e0c6e9670563f7440858fb2e15004952, type: 3}
-    volume: 1
+    volume: 0.9
   - sfx: 2
     clip: {fileID: 8300000, guid: ce1e2d01b20b05c4894fb54aeb6ca143, type: 3}
-    volume: 1
+    volume: 0.3
   - sfx: 3
     clip: {fileID: 8300000, guid: e1200765668cb7448a9dcdb90976aa95, type: 3}
     volume: 0.1
@@ -502,16 +502,16 @@ MonoBehaviour:
     volume: 0.1
   - sfx: 7
     clip: {fileID: 8300000, guid: 5637333f03ddf0d479ebc89c23a99e2b, type: 3}
-    volume: 1
+    volume: 0.8
   - sfx: 8
     clip: {fileID: 8300000, guid: d8ba24d915b597649a68987e630220b5, type: 3}
     volume: 1
   - sfx: 9
     clip: {fileID: 8300000, guid: a56eb5370370f0d4aa7d0e55e6991b1b, type: 3}
-    volume: 1
+    volume: 0.7
   - sfx: 10
     clip: {fileID: 8300000, guid: 98d1d338403a4fe4c89f5d2ffd3d2cdb, type: 3}
-    volume: 1
+    volume: 0.2
   - sfx: 11
     clip: {fileID: 8300000, guid: 2921fdf4d0f385542b4c7042b3257632, type: 3}
     volume: 1
