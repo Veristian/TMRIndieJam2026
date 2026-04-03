@@ -19,6 +19,8 @@ public class InputManager : Singleton<InputManager>
     public static bool interactWasReleasedThisFrame;
     public static bool interactIsHeld;
 
+    public static bool pauseWasPressedThisFrame;
+
     public static bool sprintIsHeld;
 
 
@@ -51,6 +53,7 @@ public class InputManager : Singleton<InputManager>
         interactWasReleasedThisFrame = playerInput.actions["Interact"].WasReleasedThisFrame();
         interactIsHeld = playerInput.actions["Interact"].IsPressed();
         sprintIsHeld = playerInput.actions["Sprint"].IsPressed();
+        pauseWasPressedThisFrame = playerInput.actions["Pause"].WasPressedThisFrame();
 
     }
 

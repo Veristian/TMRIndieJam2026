@@ -7,16 +7,27 @@ public class FadeManager : Singleton<FadeManager>
     [SerializeField] private CanvasGroup fadeCanvasGroup;
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1f;
+    [SerializeField] private Material vignetteMaterial;
+    [SerializeField] private float defaultVignetteIntensity = 1.79f;
+
 
     [Header("Color Gradient")]
-    [SerializeField] private Gradient fadeGradient;
+    [SerializeField] private Gradient fadeInGradient;
+    [SerializeField] private Gradient vignetteInMaterialGradient;
+    [SerializeField] private Gradient fadeOutGradient;
+    [SerializeField] private Gradient vignetteOutMaterialGradient;
 
     private void Start()
     {
+        vignetteMaterial.SetFloat("_VignetteIntensity", defaultVignetteIntensity);
         StartCoroutine(FadeIn());
     }
 
-    [Button("Fade Out and Load Scene")]
+    [Button("Fade Out and Load Game")]
+    public void FadeOutAndLoadGame()
+    {
+        StartCoroutine(FadeOut("GameScene"));
+    }
     public void FadeOutAndLoadScene(string sceneName)
     {
         StartCoroutine(FadeOut(sceneName));
@@ -36,7 +47,9 @@ public class FadeManager : Singleton<FadeManager>
 
             // 🎨 Gradient color (reverse for fade in)
             if (fadeImage != null)
-                fadeImage.color = fadeGradient.Evaluate(1f - t);
+                fadeImage.color = fadeInGradient.Evaluate(t);
+            if (vignetteMaterial != null)
+                vignetteMaterial.SetColor("_FCColor", vignetteInMaterialGradient.Evaluate(t));
 
             yield return null;
         }
@@ -58,7 +71,9 @@ public class FadeManager : Singleton<FadeManager>
 
             // 🎨 Gradient color
             if (fadeImage != null)
-                fadeImage.color = fadeGradient.Evaluate(t);
+                fadeImage.color = fadeOutGradient.Evaluate(t);
+            if (vignetteMaterial != null)
+                vignetteMaterial.SetColor("_FCColor", vignetteOutMaterialGradient.Evaluate(t));
 
             yield return null;
         }
@@ -66,5 +81,11 @@ public class FadeManager : Singleton<FadeManager>
         fadeCanvasGroup.alpha = 1f;
 
         SceneManager.Instance.LoadScene(sceneName);
+    }
+
+    private void OnDisable()
+    {
+        vignetteMaterial.SetColor("_FCColor", Color.black);
+        vignetteMaterial.SetFloat("_VignetteIntensity", 0);
     }
 }

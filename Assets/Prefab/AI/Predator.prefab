@@ -52,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.21, y: 0.28, z: 1.62}
-  m_Center: {x: -0.17, y: -0.5, z: 0.76}
+  m_Size: {x: 1.511761, y: 0.28000003, z: 1.6200001}
+  m_Center: {x: -0.01911974, y: -0.5, z: 0.76000005}
 --- !u!1 &7772570120851910670
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,9 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb980127f36d374bb3f398b06289162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Predator
+  distanceToSoftEnable: 15
+  distanceToSoftDisable: 30
   currentState: 0
   patrolPoints: []
-  damageAmount: 20
   attackCooldown: 2
   detectRange: 10
   attackRange: 3
