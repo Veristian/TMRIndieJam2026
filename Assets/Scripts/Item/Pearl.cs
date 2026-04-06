@@ -13,6 +13,7 @@ public class Pearl : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayOneShot(SFX.SavePointGot);
             // Add code here to give the player the pearl or trigger any desired effect
             CameraManager.Instance.IncrementVignetteLevel(); // Increment the vignette level in the CameraManager
             Destroy(gameObject); // Destroy the pearl after collection
