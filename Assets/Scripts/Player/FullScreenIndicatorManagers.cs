@@ -39,16 +39,16 @@ public class FullScreenIndicatorManagers : MonoBehaviour
 
     private void Update()
     {   
-        if (PlayerAttribute.PlayerHealth < 50)
+        if (PlayerAttribute.PlayerHealth < 80)
         {
-            float playerHealthPercentage = (PlayerAttribute.PlayerHealth/100)*(maxLowHealthVignette - minLowHealthVignette) + minLowHealthVignette;
+            float playerHealthPercentage = (1 - PlayerAttribute.PlayerHealth/100)*(maxLowHealthVignette - minLowHealthVignette) + minLowHealthVignette;
             UpdateLowHealthVignette(playerHealthPercentage);
         }
         else
         {
             UpdateLowHealthVignette(0f);
         }
-        toxicWaterExposure = Mathf.Lerp(toxicWaterExposure, PlayerAttribute.InsideToxicArea ? 1f : 0f, Time.deltaTime * 10);
+        toxicWaterExposure = Mathf.Lerp(toxicWaterExposure, PlayerAttribute.InsideToxicArea ? 1f : 0f, Time.deltaTime);
         float playerToxicWaterPercentage = toxicWaterExposure*(maxInToxicWaterVignette - minInToxicWaterVignette) + minInToxicWaterVignette;
         float playerToxicWaterTransparency = toxicWaterExposure*(maxInToxicWaterTransparency - minInToxicWaterTransparency) + minInToxicWaterTransparency;
         UpdateInToxicWaterEffect(playerToxicWaterPercentage, playerToxicWaterTransparency);

@@ -22,6 +22,8 @@ public class InputManager : Singleton<InputManager>
     public static bool pauseWasPressedThisFrame;
 
     public static bool anyWasPressedThisFrame;
+    public static bool tabWasPressedThisFrame;
+
 
     public static bool sprintIsHeld;
 
@@ -57,6 +59,7 @@ public class InputManager : Singleton<InputManager>
         sprintIsHeld = playerInput.actions["Sprint"].IsPressed();
         pauseWasPressedThisFrame = playerInput.actions["Pause"].WasPressedThisFrame();
         anyWasPressedThisFrame = playerInput.actions["Any"].WasPressedThisFrame();
+        tabWasPressedThisFrame = playerInput.actions["Tab"].WasPressedThisFrame();
 
     }
 

@@ -376,7 +376,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154257506}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: e15177d3748e6454ca43269c26eca88a, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 804e733d1e5c98e46809dc97be69fbd9, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -711,7 +711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0e487f6359d7247be6da2fb42add40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Epilogue
-  audioSource: {fileID: 0}
   delay: 1
 --- !u!1 &1374355869
 GameObject:
