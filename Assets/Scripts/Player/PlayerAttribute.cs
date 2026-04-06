@@ -86,7 +86,9 @@ public class PlayerAttribute : MonoBehaviour
         maxAmbienceTime = AudioManager.Instance.GetAudioLength(SFX.DeepSeaAmbience);
         maxPredatorTime = AudioManager.Instance.GetAudioLength(SFX.PredatorMusic);
         maxHealingTime = AudioManager.Instance.GetAudioLength(SFX.Healing);
-
+        playerHealth = 100f;
+        isChasedByPredators = false;
+        isHiddenFromPredators = false;
     }
 
     private void UpdatePlayerAudio()

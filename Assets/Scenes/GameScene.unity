@@ -3141,6 +3141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
       value: Trash_Bottle (8)
@@ -3276,6 +3280,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
@@ -3976,6 +3984,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
@@ -6548,6 +6560,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -13012,6 +13028,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
       value: Trash_TinCan (5)
@@ -13060,6 +13080,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 418072692}
+  - {fileID: 1411178891}
   - {fileID: 1226418838}
   - {fileID: 84010876}
   - {fileID: 1651886116}
@@ -13083,7 +13104,6 @@ Transform:
   - {fileID: 466441280}
   - {fileID: 1878929194}
   - {fileID: 1169729810}
-  - {fileID: 1354933805}
   - {fileID: 695420905}
   m_Father: {fileID: 2076844182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13569,6 +13589,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
       value: Trash_Bottle
@@ -13777,6 +13801,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -14742,6 +14770,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -16922,6 +16954,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -23219,6 +23255,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
       value: Trash_Bottle (5)
@@ -24703,6 +24743,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
       value: Trash_TinCan (10)
@@ -24768,6 +24812,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -25118,6 +25166,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -28009,6 +28061,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -38467,6 +38523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
       value: Trash_Bottle (3)
@@ -39824,6 +39884,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -41495,6 +41559,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
@@ -45889,6 +45957,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
       value: Trash_TinCan (7)
@@ -45980,68 +46052,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6516450951190244625, guid: cc16a81f75ef4394c9acb4fe35beba20, type: 3}
   m_PrefabInstance: {fileID: 1351631970}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1354933804
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 398108738}
-    m_Modifications:
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -49.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.843394
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.5372956
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 64.999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-      propertyPath: m_Name
-      value: Trash_Bottle (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
---- !u!4 &1354933805 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
-  m_PrefabInstance: {fileID: 1354933804}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1357130495
 PrefabInstance:
@@ -48074,6 +48084,72 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.004}
   m_TimeToStationary: 0.5
+--- !u!1001 &1411178890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 398108738}
+    m_Modifications:
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96592665
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25881618
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_Name
+      value: Trash_Bottle (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+--- !u!4 &1411178891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+  m_PrefabInstance: {fileID: 1411178890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1412689037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52246,6 +52322,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
       value: Trash_Bottle (9)
@@ -55079,6 +55159,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
@@ -61749,6 +61833,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
       value: Trash_TinCan (4)
@@ -62060,6 +62148,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: a9a6fb4217997fc49832eb92f1d83444, type: 3}
       propertyPath: m_Name
@@ -63500,6 +63592,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
@@ -66474,6 +66570,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
@@ -69680,6 +69780,10 @@ PrefabInstance:
     - target: {fileID: 2658325490530617945, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666305647222355712, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8319796472909243766, guid: ec2cf93df66fc0e44a635ad255aaf762, type: 3}
       propertyPath: m_Name
